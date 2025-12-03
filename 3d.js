@@ -2,8 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let targetX = 0, targetY = 0;
     let mouseX = 0, mouseY = 0;
     const viewport = document.getElementsByTagName('body')[0]
-    const slides = document.getElementsByClassName('slides')[0]
-
+    const rotate3d = document.getElementsByClassName('rotate3d')
 
     viewport.addEventListener('mousemove', (e) => {
         const rect = e.target.getBoundingClientRect();
@@ -14,13 +13,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     function animate() {
-        targetX += (mouseX - targetX) * 0.02;
-        targetY += (mouseY - targetY) * 0.02;
-
-        const rotY = +targetX * 6;
-        const rotX = -targetY * 6;
-                
-        slides.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg) translateZ(-20px)`;
+        let xDiff = ((mouseX - targetX) * 0.02).toFixed(4)*1
+        let yDiff = ((mouseY - targetY) * 0.02).toFixed(4)*1
+        
+        if (xDiff || yDiff){
+            targetX += xDiff;
+            targetY += yDiff;
+            
+            const rotY = +targetX * 6;
+            const rotX = -targetY * 6;
+                    
+            [...rotate3d].forEach(el => {
+                el.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg) translateZ(-20px)`;
+            });
+        }
         requestAnimationFrame(animate);
     }
 
