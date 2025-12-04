@@ -164,14 +164,17 @@ body{
 }
 .pointer-container{
     position: relative;
+    color: #fff;
 }
 .pointer-container .pointer{
+    z-index: 16;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 .pointer-container .line{
+    z-index: 16;
     position: absolute;
     display: block;
     top: 50%;
@@ -182,12 +185,14 @@ body{
     background: linear-gradient(90deg, #ffffff 2.52%, rgba(255, 255, 255, .2) 90%);
 }
 .pointer-container .eye, .pointer-container .check{
+    z-index: 16;
     position: absolute;
     top: calc(50% - 75px);
     left: calc(50% + 55px);
     transform: translate(-50%, -50%);
 }
 .pointer-container .border{ 
+    z-index: 16;
     position: absolute;
     top: calc(50% - 75px);
     left: calc(50% + 100px);
@@ -195,6 +200,7 @@ body{
     transition: all 1s;
 }
 .pointer-container .watch{ 
+    z-index: 16;
     position: absolute;
     top: calc(50% - 75px);
     left: calc(50% + 120px);
@@ -207,36 +213,42 @@ body{
     position: absolute;
     top: calc(50% - 75px);
     left: calc(50% + 100px);
-    width: 110px;
-    height: 40px;
+    width: 140px;
+    height: 50px;
     transform: translate(-50%, -50%);
     transition: all 1s;
     filter: blur(5px);
     pointer-events: auto;
     border-radius: 20px;
     opacity: 0.4;
+    background-color: rgba(0, 0, 0, 0.6);
 }
-.video:hover .hover, .viewed .hover{
+:hover .hover, .viewed .hover{
     background-color: rgba(144, 238, 144, 0.8);
 }
 .viewed .pointer-container .watch{ 
-    color: rgba(144, 238, 144, .7);
+    color: rgba(144, 238, 144, 0.9);
 }
-.pointer-container .eye, .viewed .pointer-container .check{
+.eye, .viewed .check{
     display: block;
 }
-.viewed .pointer-container .eye, .pointer-container .check{
+.viewed .eye, .check{
     display: none;
 }
 .pop-up{
     display: none;
     position: fixed;
-    width: 80%;
     height: auto;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 17;
+}
+.video-pop-up{
+    width: 80%;
+}
+.read-pop-up{
+    width: 30%;
 }
 .pop-up video{
     width: 100%;
@@ -253,4 +265,13 @@ body{
 }
 .pop-up.open, .overlay.open{
     display: block;
+}
+.custom-pointer{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+}
+
+.pointer-container{
+
 }

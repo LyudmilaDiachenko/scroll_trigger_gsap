@@ -52,27 +52,53 @@
       }
     });
 
-    const popup = document.querySelector('.pop-up');
     const overlay = document.querySelector('.overlay');
-    const video = popup.querySelector('.pop-up video')
     const close = document.querySelectorAll('.close, .overlay')
+    const videoPopup = document.querySelector('.video-pop-up');
+    const readPopup = document.querySelector('.read-pop-up');
+    const video = videoPopup.querySelector('.video-pop-up video')
+
     document.querySelectorAll('.video').forEach(el => {
       el?.addEventListener('click', event => {
         video.src = `./video/${event.target.dataset.name}.webm`
+
         gsap.fromTo(overlay, {opacity: 0.1}, {opacity: 0.9});
         overlay?.classList.add('open')
-        gsap.from(popup, {scale: 0.8, opacity: 0.5});
-        popup?.classList.add('open')
+
+        gsap.from(videoPopup, {scale: 0.8, opacity: 0.5});
+        videoPopup?.classList.add('open')
+
+        event.target.classList.add('viewed')
         video.play()
+      })
+    })
+
+    close.forEach(el => el.addEventListener('click', _ => {
+      gsap.fromTo(overlay, {opacity: 0.9}, {opacity: 0.1});
+      gsap.to(videoPopup, {scale: 0.8, opacity: 0.5});
+      gsap.to(readPopup, {scale: 0.8, opacity: 0.5});
+      videoPopup.classList.remove('open')
+      readPopup.classList.remove('open')
+      overlay.classList.remove('open')
+      video.pause()
+    }))
+
+    document.querySelectorAll('.custom-pointer').forEach(el => {
+      el?.addEventListener('click', event => {
+        dataEl = event.target.closest('.custom-pointer');
+        readPopup.querySelector('.title').innerHTML = dataEl.dataset.title;
+        readPopup.querySelector('.description').innerHTML = dataEl.dataset.description;
+        readPopup.querySelector('.name').innerHTML = dataEl.dataset.name;
+
+        gsap.fromTo(overlay, {opacity: 0.1}, {opacity: 0.9});
+        overlay?.classList.add('open')
+
+        gsap.from(readPopup, {scale: 0.8, opacity: 0.5});
+        readPopup?.classList.add('open')
+
         event.target.classList.add('viewed')
       })
-      close.forEach(el => el.addEventListener('click', _ => {
-        gsap.fromTo(overlay, {opacity: 0.9}, {opacity: 0.1});
-        gsap.to(popup, {scale: 0.8, opacity: 0.5});
-        popup.classList.remove('open')
-        overlay.classList.remove('open')
-        video.pause()
-      }))
     })
+
 });
 
