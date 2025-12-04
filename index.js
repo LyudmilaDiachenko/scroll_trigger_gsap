@@ -7,11 +7,13 @@
     .addLabel('slide-0')
     .to('.slide-0', {xPercent: -100})
     .from('.slide-1', {xPercent: 100}, "<")
-    .from('.slide-1 .video', {scale: 0.8, opacity: 0 }, "<")
+    .from('.slide-1 .video', {scale: 0.8, opacity: 0}, "<")
+    .from('.slide-1 .pointer-container', {scale: 0.5, opacity: 0}, "<")
     
     .addLabel('slide-1')
     .to('.slide-1', {xPercent: -100})
-    .to('.slide-1 .video', {scale: 0.8, opacity: 0 }, "<")
+    .to('.slide-1 .video', {scale: 0.8, opacity: 0}, "<")
+    .to('.slide-1 .pointer-container', {scale: 0.5, opacity: 0}, "<")
     .from('.slide-2', {xPercent: 100}, "<")
 
     .addLabel('slide-2')
