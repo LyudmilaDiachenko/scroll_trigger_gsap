@@ -294,11 +294,68 @@ body{
     width: 80%;
 }
 .read-pop-up{
-    width: 30%;
+    width: 20%;
+    padding: 60px 40px;
+    font-weight: 600;
     color: white;
-    padding: 40px;
     text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.5)
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    border-top-right-radius: 12px;
+    border-bottom-left-radius: 12px;    
+}
+.left-line{
+    position: absolute;
+    left: 20%;
+    margin-bottom: 4px;
+}
+.right-line{
+    position: absolute;
+    left: 50%;
+}
+.title-text{
+    margin: 20px 0 5px 0;
+    font-size: 32px;
+    text-shadow: 
+    0 0 2px rgba(144, 238, 144, 0.8),
+    0 0 5px rgba(144, 238, 144, 0.8),
+    0 0 10px rgba(144, 238, 144, 0.8);
+    letter-spacing: 2px;
+    line-height: 32px;
+}
+.name-text{
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: 2.5px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 40px;
+}
+.nametoo-text{
+    font-weight: 400;
+    margin-top: 10px;
+    color: #2df872;
+    font-size: 8px;
+    letter-spacing: 6.5px;
+    text-shadow: 
+        0 0 2px rgba(144, 238, 144, 0.8),
+        0 0 5px rgba(144, 238, 144, 0.8),
+        0 0 10px rgba(144, 238, 144, 0.8);
+    ;
+}
+.circle{
+    font-size: 7px;
+    margin: 34px 0px;
+}
+.description{
+    filter: contrast(50%) brightness(85%);
+    font-weight: 100;
+    text-transform: none;
+    color: #c0c0c0;
+    font-size: 15px;
+    line-height: 1.3;
+    text-align: center;
+    font-family: Arial, sans-serif;
 }
 .pop-up video{
     width: 100%;
@@ -316,7 +373,7 @@ body{
 .pop-up.open, .overlay.open{
     display: block;
 }
-.custom-pointer{
+.pointer-left{
     position: absolute;
     top: 53%;
     left: 61.75%;
@@ -330,10 +387,6 @@ body{
     position: absolute;
     top: 53%;
     left: 42%;
-}
-.pointer-text{
-    width: 300px;
-    border: 1px solid rgba(255, 255, 255, 0.5);
 }
 .bottom-txt{
     position: absolute;

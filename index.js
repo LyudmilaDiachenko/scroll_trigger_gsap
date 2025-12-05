@@ -110,6 +110,7 @@
         readPopup.querySelector('.title').innerHTML = dataEl.dataset.title;
         readPopup.querySelector('.description').innerHTML = dataEl.dataset.description;
         readPopup.querySelector('.name').innerHTML = dataEl.dataset.name;
+        readPopup.querySelector('.nametoo').innerHTML = dataEl.dataset.nametoo;
 
         gsap.fromTo(overlay, {opacity: 0.1}, {opacity: 0.9});
         overlay?.classList.add('open')
