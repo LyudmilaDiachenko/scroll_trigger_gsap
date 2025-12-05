@@ -19,7 +19,6 @@
     font-style: normal;
     font-display: swap;
 }
-
 body{
     margin: 0;
     padding: 0;
@@ -32,6 +31,53 @@ body{
     justify-content: center;
     perspective: 900px;
     /* overflow: hidden; */
+}
+.logo{
+    position: fixed;
+    top: 3%;
+    left: 1.5%;
+    z-index: 19;
+    width: 180px;
+    height: 180px;
+}
+.menu{
+    position: fixed;
+    top: 5%;
+    right: 2%;
+    z-index: 21;
+}
+.logo-footer{
+    position: fixed;
+    width: 345px;
+    height: 40px;
+    bottom: 0;
+    right: 0;
+    margin: 24px 24px 5px 24px;
+    z-index: 19;
+    display: flex;
+    align-items: center;
+    border: 0.5px solid rgba(255, 255, 255, 0.5);;
+    color: white;
+}
+.sprite img{
+    height: 36px;
+    padding: 0 10px;
+}
+.wakanda{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+    border-right: 1px solid rgba(255, 255, 255, 0.5);
+}
+.wakanda img{
+    height: 30px;
+    padding: 0 25px;
+}
+.footer-txt{
+    font-weight: 400;
+    font-size: 10px;
+    margin: 0 auto;
 }
 .slides{
     inset: -10%;
@@ -249,6 +295,10 @@ body{
 }
 .read-pop-up{
     width: 30%;
+    color: white;
+    padding: 40px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.5)
 }
 .pop-up video{
     width: 100%;
@@ -268,10 +318,54 @@ body{
 }
 .custom-pointer{
     position: absolute;
-    left: 50%;
-    top: 50%;
+    top: 53%;
+    left: 61.75%;
 }
-
-.pointer-container{
+.pointer-center{
+    position: absolute;
+    top: 54%;
+    left: 51.75%;
+}
+.pointer-right{
+    position: absolute;
+    top: 53%;
+    left: 42%;
+}
+.pointer-text{
+    width: 300px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+.bottom-txt{
+    position: absolute;
+    bottom: -10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-transform: uppercase;
+    color: white;
+}
+.txt{
+    text-shadow: 
+    0 0 5px rgba(144, 238, 144, 0.8),
+    0 0 10px rgba(144, 238, 144, 0.8),
+    0 0 20px rgba(144, 238, 144, 0.8);
+}
+.txt-1{
+    font-weight: 600;
+    font-size: 1.3em;
+    letter-spacing: 3px;
+}
+.txt-2{
+    font-weight: 500;
+    font-size: 1.35em;
+    letter-spacing: 3px;
+}
+.txt-3{
+    font-weight: 500;
+    font-size: 0.8em;
+    letter-spacing: 3px;
+    margin-top: 20px;
 
 }
