@@ -62,14 +62,13 @@
     ScrollTrigger.create({
       animation: tl,
       trigger: '.main',
-      end: '+=20000',
+      end: '+=10000',
       scrub: 1,
       pin: true,
       snap: {
         snapTo: 'labels',
         duration: { min: 0.2, max: 3 },
-        delay: 0,
-        // ease: 'power1.inOut' // the ease of the snap animation ("power3" by default)
+        delay: 0
       }
     });
 
@@ -77,7 +76,8 @@
     const close = document.querySelectorAll('.close, .overlay')
     const videoPopup = document.querySelector('.video-pop-up');
     const readPopup = document.querySelector('.read-pop-up');
-    const video = videoPopup.querySelector('.video-pop-up video')
+    const mapPopup = document.querySelector('.map-container');
+    const video = videoPopup.querySelector('.video-pop-up video');
 
     document.querySelectorAll('.video').forEach(el => {
       el?.addEventListener('click', event => {
@@ -94,23 +94,20 @@
       })
     })
 
-    close.forEach(el => el.addEventListener('click', _ => {
-      gsap.fromTo(overlay, {opacity: 0.9}, {opacity: 0.1});
-      gsap.fromTo(videoPopup, {opacity: 1}, {opacity: 0.5});
-      gsap.fromTo(readPopup, {scale: 1, opacity: 1}, {scale: 0.8, opacity: 0.5});
-      videoPopup.classList.remove('open')
-      readPopup.classList.remove('open')
-      overlay.classList.remove('open')
-      video.pause()
-    }))
-
     document.querySelectorAll('.custom-pointer').forEach(el => {
       el?.addEventListener('click', event => {
         dataEl = event.target.closest('.custom-pointer');
         readPopup.querySelector('.title').innerHTML = dataEl.dataset.title;
+        readPopup.querySelector('.titletoo').innerHTML = dataEl.dataset.titletoo;
         readPopup.querySelector('.description').innerHTML = dataEl.dataset.description;
         readPopup.querySelector('.name').innerHTML = dataEl.dataset.name;
         readPopup.querySelector('.nametoo').innerHTML = dataEl.dataset.nametoo;
+        if (dataEl.dataset.btn){ 
+          readPopup.querySelector('.begin').classList.remove('hide')
+          readPopup.querySelector('.begin').innerHTML = dataEl.dataset.btn;
+        } else {
+          readPopup.querySelector('.begin').classList.add('hide')
+        }
 
         gsap.fromTo(overlay, {opacity: 0.1}, {opacity: 0.9});
         overlay?.classList.add('open')
@@ -122,5 +119,29 @@
       })
     })
 
+    document.querySelectorAll('.menu').forEach(el => {
+      el?.addEventListener('click', event => {
+        gsap.fromTo(overlay, {opacity: 0.1}, {opacity: 0.9});
+        overlay?.classList.add('open')
+
+        gsap.fromTo(readPopup, {scale: 0.8, opacity: 0.5}, {scale: 1, opacity: 1});
+        readPopup?.classList.add('open')
+
+        event.target.closest('.custom-pointer').classList.add('viewed')
+      })
+    })
+
+    close.forEach(el => el.addEventListener('click', _ => {
+      gsap.fromTo(overlay, {opacity: 0.9}, {opacity: 0.1});
+      gsap.fromTo(videoPopup, {opacity: 1}, {opacity: 0.5});
+      gsap.fromTo(readPopup, {scale: 1, opacity: 1}, {scale: 0.8, opacity: 0.5});
+      gsap.fromTo(readPopup, {scale: 1, opacity: 1}, {scale: 0.8, opacity: 0.5});
+      // gsap.fromTo(map, {opacity: 1}, {opacity: 0.5});
+      videoPopup.classList.remove('open')
+      readPopup.classList.remove('open')
+      overlay.classList.remove('open')
+      // map.classList.remove('open')
+      video.pause()
+    }))
 });
 
