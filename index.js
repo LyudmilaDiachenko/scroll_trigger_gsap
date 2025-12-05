@@ -27,6 +27,7 @@
     .to('.bottom-txt .txt-1', {text: 'inspiration'}, "<")
     .to('.bottom-txt .txt-2', {text: 'garden'}, "<")
     .to('.bottom-txt .txt-3', {text: 'where ingenuity overflows'}, "<")
+    .from('.slide-3 .pointer-container', {scale: 0.5, opacity: 0}, "<")
     .from('.slide-3', {xPercent: 100}, "<")
 
     .addLabel('slide-3')
@@ -34,6 +35,7 @@
     .to('.bottom-txt .txt-1', {text: ''}, "<")
     .to('.bottom-txt .txt-2', {text: ''}, "<")
     .to('.bottom-txt .txt-3', {text: ''}, "<")
+    .to('.slide-3 .pointer-container', {scale: 0.5, opacity: 0}, "<")
     .from('.slide-4', {xPercent: 100}, "<")
 
     .addLabel('slide-4')
@@ -41,13 +43,17 @@
     .to('.bottom-txt .txt-1', {text: 'the'}, "<")
     .to('.bottom-txt .txt-2', {text: 'library'}, "<")
     .to('.bottom-txt .txt-3', {text: 'more help finding your gift'}, "<")
+    .from('.slide-5 .video', {scale: 0.8, opacity: 0}, "<")
+    .from('.slide-5 .pointer-container', {scale: 0.5, opacity: 0}, "<")
     .from('.slide-5', {xPercent: 100}, "<")
-
+    
     .addLabel('slide-5')
     .to('.slide-5', {xPercent: -100})
     .to('.bottom-txt .txt-1', {text: 'find your'}, "<")
     .to('.bottom-txt .txt-2', {text: 'gift'}, "<")
     .to('.bottom-txt .txt-3', {text: 'quiz experience'}, "<")
+    .to('.slide-5 .video', {scale: 0.8, opacity: 0}, "<")
+    .to('.slide-5 .pointer-container', {scale: 0.5, opacity: 0}, "<")
     .from('.slide-6', {xPercent: 100}, "<")
 
     .addLabel('slide-6')
