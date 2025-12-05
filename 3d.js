@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const rotX = -targetY * 6;
                     
             [...rotate3d].forEach(el => {
-                el.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg) translateZ(-20px)`;
+                el.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg) translateZ(-20px) translateX(${-targetX * 100}px) translateY(${-targetY * 100}px)`;
             });
         }
         requestAnimationFrame(animate);
