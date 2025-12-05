@@ -76,7 +76,7 @@
     const close = document.querySelectorAll('.close, .overlay')
     const videoPopup = document.querySelector('.video-pop-up');
     const readPopup = document.querySelector('.read-pop-up');
-    const mapPopup = document.querySelector('.map-container');
+    const mapPopup = document.querySelector('.map-pop-up');
     const video = videoPopup.querySelector('.video-pop-up video');
 
     document.querySelectorAll('.video').forEach(el => {
@@ -122,12 +122,10 @@
     document.querySelectorAll('.menu').forEach(el => {
       el?.addEventListener('click', event => {
         gsap.fromTo(overlay, {opacity: 0.1}, {opacity: 0.9});
-        overlay?.classList.add('open')
+        overlay?.classList.add('open');
 
-        gsap.fromTo(readPopup, {scale: 0.8, opacity: 0.5}, {scale: 1, opacity: 1});
-        readPopup?.classList.add('open')
-
-        event.target.closest('.custom-pointer').classList.add('viewed')
+        gsap.fromTo(mapPopup, {scale: 0.8, opacity: 0.5}, {scale: 1, opacity: 1});
+        mapPopup?.classList.add('open');
       })
     })
 
@@ -136,11 +134,11 @@
       gsap.fromTo(videoPopup, {opacity: 1}, {opacity: 0.5});
       gsap.fromTo(readPopup, {scale: 1, opacity: 1}, {scale: 0.8, opacity: 0.5});
       gsap.fromTo(readPopup, {scale: 1, opacity: 1}, {scale: 0.8, opacity: 0.5});
-      // gsap.fromTo(map, {opacity: 1}, {opacity: 0.5});
+      gsap.fromTo(mapPopup, {scale: 1, opacity: 1}, {scale: 0.8, opacity: 0.5});
       videoPopup.classList.remove('open')
       readPopup.classList.remove('open')
       overlay.classList.remove('open')
-      // map.classList.remove('open')
+      mapPopup.classList.remove('open')
       video.pause()
     }))
 });
